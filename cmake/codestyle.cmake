@@ -84,7 +84,8 @@ function(format_and_lint module)
   endif()
   if(py_files_)
     list(APPEND fmtcmds_ COMMAND autopep8 -i ${py_files_})
-    list(APPEND lntcmds_ COMMAND pylint ${py_files_})
+    list(APPEND lntcmds_ COMMAND env PYTHONPATH=${CMAKE_SOURCE_DIR}
+                                 pylint ${py_files_})
     # NOTE(josh): flake8 tries to use semaphores which fail in our containers
     # https://bugs.python.org/issue3770 (probably due to /proc/shmem or
     # something not being mounted)

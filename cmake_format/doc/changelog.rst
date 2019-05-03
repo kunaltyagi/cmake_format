@@ -6,6 +6,16 @@ Changelog
 v0.5 series
 -----------
 
+v0.5.2
+------
+
+* add parsers for different forms of ``add_library()`` and ``add_executable()``
+* move ``add_library``, ``add_executable()`` and ``install()`` parsers to their
+  own modules
+* don't infer sortability in ``add_library`` or ``add_executable()`` if the
+  descriminator token might be a cmake variable hiding the descriminator
+  spelling
+
 v0.5.1
 ------
 

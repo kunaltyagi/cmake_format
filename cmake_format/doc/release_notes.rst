@@ -9,6 +9,15 @@ v0.5 series
 ===========
 
 ------
+v0.5.2
+------
+
+This release fixes a few bugs.
+
+* Add missing forms of ``add_library()`` and ``add_executable()``
+
+
+------
 v0.5.1
 ------
 

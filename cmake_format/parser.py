@@ -355,9 +355,10 @@ def consume_whitespace_and_comments(tokens, tree):
     break
 
 
-def get_first_semantic_token(tokens):
+def iter_semantic_tokens(tokens):
   """
-  Return the first token with semantic meaning
+  Return a generator over the list of tokens yielding only those that
+  have semantic meaning
   """
   skip_tokens = (lexer.TokenType.WHITESPACE,
                  lexer.TokenType.NEWLINE,
@@ -367,6 +368,14 @@ def get_first_semantic_token(tokens):
   for token in tokens:
     if token.type in skip_tokens:
       continue
+    yield token
+
+def get_first_semantic_token(tokens):
+  """
+  Return the first token with semantic meaning
+  """
+
+  for token in iter_semantic_tokens(tokens):
     return token
   return None
 
